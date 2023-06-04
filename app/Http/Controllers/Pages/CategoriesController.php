@@ -34,7 +34,7 @@ class CategoriesController extends Controller
         ];
 
         CategoriesBooks::create($data);
-        return redirect()->to('perpus/categories')->with('success', 'Added data successfully');
+        return redirect()->to('perpus/categories')->with('success', 'Berhasil menambahkan data!');
     }
     public function show(Request $request, string $id)
     {
@@ -42,14 +42,28 @@ class CategoriesController extends Controller
 
     public function edit(string $id)
     {
-        return "HI";
+        $data = CategoriesBooks::where('name', $id)->first();
+        return view('pages.categories.edit')->with('data', $data);
     }
 
     public function update(Request $request, string $id)
     {
+        $request->validate([
+            'name' => 'required|unique:categories_books,name'
+        ], [
+            'name.required' => 'name cannot be blank',
+            'name.unique' => 'name already taken'
+        ]);
+        $data = [
+            'name' => $request->name,
+        ];
+        CategoriesBooks::where('id', $id)->update($data);
+        return redirect()->to('perpus/categories')->with('success', 'Berhasil mengubah data!');
     }
 
     public function destroy($id)
     {
+        CategoriesBooks::where('id', $id)->delete();
+        return redirect()->to('perpus/categories')->with('success', 'Berhasil mengahapus data!');
     }
 }

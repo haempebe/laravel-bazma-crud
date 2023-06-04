@@ -37,8 +37,15 @@
                                         {{ $item->name }}
                                     </td>
                                     <td class="d-flex gap-1">
-                                        <a href="{{ url('perpus/categories/'. $item->name . '/edit') }}" class="btn">Ubah</a>
-                                        <a href="#" class="btn">Hapus</a>
+                                        <a href="{{ url('perpus/categories/' . $item->name . '/edit') }}"
+                                                class="btn">Ubah</a>
+                                            <form class="d-inline" onsubmit="return confirm('Yakin akan menghapus data?')"
+                                                action="{{ url('perpus/categories/' . $item->id . '/delete') }}"
+                                                method="post">
+                                                @csrf
+                                                @method('DELETE')
+                                                <button class="btn">Hapus</button>
+                                            </form>
                                     </td>
                                 </tr>
                                 @php
