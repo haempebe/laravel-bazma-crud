@@ -6,6 +6,13 @@
         <div class="page-wrapper">
             <!-- Page body -->
             <div class="page-body">
+                @if (Session::has('success'))
+        <div class="pt-3">
+            <div class="alert alert-success">
+                {{ Session::get('success') }}
+            </div>
+        </div>
+    @endif
                 @yield("content")
             </div>
             @include("app.inc.footer")

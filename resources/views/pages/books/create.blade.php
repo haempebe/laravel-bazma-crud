@@ -23,7 +23,7 @@
                                 @csrf
                                 <div class="mb-3">
                                     <label class="form-label required">Nama Kategori</label>
-                                    <input type="text" class="form-control" name="example-text-input"
+                                    <input type="text" class="form-control" name="name"
                                         placeholder="Input Nama Kategori">
                                 </div>
                                 <button class="btn btn-primary">Create </button>

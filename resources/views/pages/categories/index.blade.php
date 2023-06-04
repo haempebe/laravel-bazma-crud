@@ -21,22 +21,30 @@
                         <table class="table table-vcenter card-table">
                             <thead>
                                 <tr>
-                                    <th>#</th>
+                                    <th>Id</th>
                                     <th>Name</th>
                                     <th class="w-1"></th>
                                 </tr>
                             </thead>
                             <tbody>
+                                @php
+                                    $i = 1
+                                @endphp
+                                @foreach ($allCategories as $item)
                                 <tr>
-                                    <td>Paweł Kuna</td>
+                                    <td>{{ $i }}</td>
                                     <td class="text-muted">
-                                        UI Designer, Training
+                                        {{ $item->name }}
                                     </td>
                                     <td class="d-flex gap-1">
-                                        <a href="#" class="btn">Ubah</a>
+                                        <a href="{{ url('perpus/categories/'. $item->name . '/edit') }}" class="btn">Ubah</a>
                                         <a href="#" class="btn">Hapus</a>
                                     </td>
                                 </tr>
+                                @php
+                                    $i++
+                                @endphp
+                                @endforeach
                             </tbody>
                         </table>
                     </div>

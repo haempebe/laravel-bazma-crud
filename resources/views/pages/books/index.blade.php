@@ -43,14 +43,13 @@
                         <table class="table table-vcenter card-table">
                             <thead>
                                 <tr>
-                                    <th>#</th>
                                     <th>Name</th>
                                     <th class="w-1"></th>
                                 </tr>
                             </thead>
                             <tbody>
+
                                 <tr>
-                                    <td>Paweł Kuna</td>
                                     <td class="text-muted">
                                         UI Designer, Training
                                     </td>

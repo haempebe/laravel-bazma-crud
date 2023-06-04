@@ -1,6 +1,19 @@
 @section('pageTitle', 'Buat Kategori')
 @extends('app.app')
 @section('content')
+
+@if ($errors->any())
+<div class="pt-3">
+    <div class="alert alert-danger">
+        <ul>
+            @foreach ($errors->all() as $item)
+                <li>{{ $item }}</li>
+            @endforeach
+        </ul>
+    </div>
+</div>
+@endif
+
     <div class="container-xl">
         <div class="row row-cards">
             <div class="row g-2 align-items-center">
@@ -23,7 +36,7 @@
                                 @csrf
                                 <div class="mb-3">
                                     <label class="form-label required">Nama Kategori</label>
-                                    <input type="text" class="form-control" name="example-text-input"
+                                    <input type="text" class="form-control" name="name" value="{{ Session::get('name') }}"
                                         placeholder="Input Nama Kategori">
                                 </div>
                                 <button class="btn btn-primary">Create </button>
