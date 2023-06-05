@@ -28,16 +28,19 @@
                                 </tr>
                             </thead>
                             <tbody>
+                                @php
+                                    $i = 1;
+                                @endphp
                                 @foreach ($allCategories as $item)
                                     <tr>
-                                        <td>{{ $item->id }}</td>
+                                        <td>{{ $i }}</td>
                                         <td class="text-muted">
                                             {{ $item->name }}
                                         </td>
                                         <td class="d-flex gap-1">
                                             <a href="{{ url('perpus/categories/' . $item->name . '/edit') }}"
                                                 class="btn">Ubah</a>
-                                            <form class="d-inline" onsubmit="return confirm('sure to delete this data?')"
+                                            <form class="d-inline" onsubmit="return confirm('sure to delete this data')"
                                                 action="{{ url('perpus/categories/' . $item->id . '/delete') }}"
                                                 method="post">
                                                 @csrf
@@ -46,7 +49,10 @@
                                             </form>
                                         </td>
                                     </tr>
-                                @endforeach
+                                    @php
+                                        $i++;
+                                    @endphp
+                                @endforeach 
                             </tbody>
                         </table>
                     </div>
