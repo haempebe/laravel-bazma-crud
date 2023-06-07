@@ -58,6 +58,6 @@ class CategoriesController extends Controller
     public function destroy($id)
     {
         CategoriesBooks::where('id', $id)->delete();
-        return redirect()->to('perpus/categories')->with('success', 'Update data successfully');
+        return redirect()->to('perpus/categories')->with('success', 'The data has been successfully deleted');
     }
 }

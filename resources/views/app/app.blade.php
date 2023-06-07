@@ -7,7 +7,9 @@
         <div class="page-wrapper">
             <!-- Page body -->
             <div class="page-body">
-                @include('app.inc.message')
+                <div class="container-xl">
+                    @include('app.inc.message')
+                </div>
                 @yield('content')
             </div>
             @include('app.inc.footer')

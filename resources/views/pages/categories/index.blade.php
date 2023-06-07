@@ -52,7 +52,7 @@
                                     @php
                                         $i++;
                                     @endphp
-                                @endforeach 
+                                @endforeach
                             </tbody>
                         </table>
                     </div>
